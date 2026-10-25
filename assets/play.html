@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<title>ペルソナシリーズ最新作「ペルソナ４」</title>
+<style>
+  html, body { margin: 0; min-height: 100%; background: #000; }
+  body { color: #fff; font-family: "MS PGothic", "ＭＳ Ｐゴシック", Meiryo, sans-serif; font-size: 12px; }
+
+  /* The original 2008 layout is a fixed 600-pixel wide page. */
+  .page { width: 600px; margin: 10px auto 30px; }
+  #game { position: relative; width: 600px; height: 400px; overflow: hidden; background: #000; }
+  #game ruffle-player { display: block; width: 600px; height: 400px; }
+  #game-status { position: absolute; inset: 0; display: grid; place-items: center; background: #000; color: #ccc; }
+  #game-status[hidden] { display: none; }
+
+  /* Exact relative positions determined from the original-page screenshot:
+     email: (0, 0); URL row: (0, 28); blog row: (0, 62);
+     Persona banner: (408, 28); copyright: (0, 119). */
+  .below { position: relative; height: 140px; width: 600px; margin-top: 15px; }
+  .mail-link { display: block; position: absolute; top: 0; left: 0; width: 267px; height: 22px; }
+  .mail-link img { display: block; width: 267px; height: 22px; border: 0; }
+  .share-row { position: absolute; left: 0; width: 404px; height: 30px; display: flex; align-items: flex-start; }
+  .share-row.url-row { top: 28px; }
+  .share-row.blog-row { top: 62px; }
+  .share-title { flex: 0 0 229px; width: 229px; height: 30px; }
+  .share-title img { display: block; border: 0; }
+  .form-slot { position: relative; flex: 0 0 175px; height: 30px; width: 175px; overflow: hidden; background: #000; }
+  .form-slot ruffle-player { width: 175px; height: 30px; display: block; }
+  .form-slot .form-fail { font: 10px Arial, sans-serif; color: #ccc; }
+
+  .banner-link { display: block; position: absolute; top: 28px; right: 0; width: 192px; height: 78px; }
+  .banner-link img { display: block; border: 0; width: 192px; height: 78px; }
+  .copyright { position: absolute; left: 0; top: 119px; width: 161px; height: 16px; }
+  .copyright img { display: block; width: 161px; height: 16px; }
+
+  /* The original layout has no extra text or centered footer.
+     Diagnostics and native input fallback are opt-in via ?fallback=1. */
+  .backup { color: #aaa; width: 600px; margin: 8px 0; font: 11px/1.6 Arial, sans-serif; }
+  .backup[hidden] { display: none; }
+  .backup summary { cursor: pointer; }
+  .backup label { display: inline-block; width: 42px; }
+  .backup input { box-sizing: border-box; width: 440px; font-size: 11px; }
+  .backup button { font-size: 11px; }
+  .backup-row { margin-top: 5px; }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  @media(max-width: 600px) {
+    /* Retain 2008 fixed coordinates rather than unexpectedly reflowing */
+    .page { margin-left: 0; margin-right: 0; }
+    body { min-width: 600px; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <div id="game" aria-label="ペルソナ４ 温泉ノゾき見大作戦">
+    <div id="game-status" role="status">Flashゲームを読み込んでいます…</div>
+  </div>
+
+  <section class="below" aria-label="このゲームを共有">
+    <a id="mail-link" class="mail-link" href="#" title="友人にメールで教える">
+      <img src="btn_mail.jpg" alt="「温泉ノゾき見大作戦」を友人にメールで教える" width="267" height="22">
+    </a>
+
+    <div class="share-row url-row">
+      <div class="share-title"><img src="btn_nzk.jpg" alt="「温泉ノゾき見大作戦」のURL" width="194" height="22"></div>
+      <div id="form-url" class="form-slot" aria-label="ゲームのURLをコピーするフォーム">
+      </div>
+    </div>
+
+    <div class="share-row blog-row">
+      <div class="share-title"><img src="btn_nzk_blog.jpg" alt="「温泉ノゾき見大作戦」のバナーをブログ・HP・SNSにはりつける" width="210" height="25"></div>
+      <div id="form-banner" class="form-slot" aria-label="ブログ用バナーのHTMLをコピーするフォーム">
+      </div>
+    </div>
+
+    <a id="banner-link" class="banner-link" href="http://www.atlus.co.jp/cs/game/pstation2/persona4/nozoki/" title="ペルソナ４">
+      <img src="top_bn_persona4.jpg" alt="ペルソナ４" width="192" height="78">
+    </a>
+    <div class="copyright"><img src="copyright.gif" alt="©ATLUS CO., LTD. 1996, 2008" width="161" height="16"></div>
+  </section>
+
+  <details id="backup" class="backup" hidden>
+    <summary>ブラウザでコピーする / Browser copy fallback</summary>
+    <div class="backup-row"><label for="fallback-url">URL</label><input id="fallback-url" type="text" readonly><button type="button" data-copy="fallback-url">コピー</button></div>
+    <div class="backup-row"><label for="fallback-banner">HTML</label><input id="fallback-banner" type="text" readonly><button type="button" data-copy="fallback-banner">コピー</button></div>
+  </details>
+  <span class="visually-hidden" id="copy-status" role="status" aria-live="polite"></span>
+</main>
+
+<!-- Ruffle is intentionally loaded online; all Atlus files are local. -->
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<script>
+(() => {
+  const originalURL = 'http://www.atlus.co.jp/cs/game/pstation2/persona4/nozoki/';
+  const bannerHTML = '<a href="' + originalURL + '"><img src="' + originalURL +
+    'img/top_bn_persona4.jpg" width="192" height="78" alt="Persona 4"></a>';
+
+  document.getElementById('mail-link').href = 'mailto:?subject=' +
+    encodeURIComponent('ペルソナ４「温泉ノゾき見大作戦」') + '&body=' + encodeURIComponent(originalURL);
+  document.getElementById('fallback-url').value = originalURL;
+  document.getElementById('fallback-banner').value = bannerHTML;
+
+  if (new URLSearchParams(location.search).has('fallback')) {
+    document.getElementById('backup').hidden = false;
+  }
+
+  async function copyValue(input) {
+    const text = input.value;
+    const status = document.getElementById('copy-status');
+    try {
+      if (!navigator.clipboard || !navigator.clipboard.writeText) throw Error('Clipboard API unavailable');
+      await navigator.clipboard.writeText(text);
+      status.textContent = 'コピーしました';
+    } catch (_) {
+      input.focus(); input.select();
+      try {
+        if (!document.execCommand('copy')) throw Error('Clipboard blocked');
+        status.textContent = 'コピーしました';
+      } catch (_) {
+        status.textContent = 'Ctrl+Cでコピーしてください';
+        alert('Clipboard was blocked by your browser. Press Ctrl+C to copy the selected text.');
+      }
+    }
+  }
+  document.querySelectorAll('[data-copy]').forEach(button => {
+    button.addEventListener('click', () => copyValue(document.getElementById(button.dataset.copy)));
+  });
+
+  function formError(slotId, err) {
+    console.warn('Original form.swf could not load:', slotId, err);
+    const slot = document.getElementById(slotId);
+    slot.textContent = 'Flashフォームを読み込めませんでした';
+  }
+  function loadFlashForm(ruffle, id, filename, text) {
+    const player = ruffle.createPlayer();
+    const slot = document.getElementById(id);
+    slot.appendChild(player);
+    // This is an actual Flash player with the original Flash input and button.
+    // These patched forms contain their own text and correct the
+    // original code.text versus actual url.text component mismatch.
+    const options = {
+      url: filename,
+      backgroundColor: '#000000',
+      scale: 'showAll',
+      showSwfDownload: false
+    };
+    // Only the untouched SWF still needs the historical FlashVar.
+    // Do not overwrite its instance named 'url' in the corrected versions.
+    if (filename === 'form.swf') options.parameters = { url: text };
+    return Promise.resolve(player.ruffle().load(options)).catch(err => formError(id, err));
+  }
+  function start() {
+    const status = document.getElementById('game-status');
+    const ruffle = window.RufflePlayer && window.RufflePlayer.newest();
+    if (!ruffle) {
+      status.textContent = 'Ruffleを読み込めませんでした。インターネット接続を確認してください。';
+      return;
+    }
+    const game = ruffle.createPlayer();
+    document.getElementById('game').appendChild(game);
+    status.hidden = true;
+    Promise.resolve(game.ruffle().load('nozoki.swf')).catch(err => {
+      status.hidden = false;
+      status.textContent = 'Flashゲームの読み込みエラー: ' + String(err);
+    });
+    const originals = new URLSearchParams(location.search).get('forms') === 'original';
+    loadFlashForm(ruffle, 'form-url', originals ? 'form.swf' : 'form_url.swf', originalURL);
+    loadFlashForm(ruffle, 'form-banner', originals ? 'form.swf' : 'form_banner.swf', bannerHTML);
+  }
+  window.addEventListener('load', start);
+})();
+</script>
+</body>
+</html>

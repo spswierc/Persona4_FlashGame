@@ -1,0 +1,94 @@
+<Stage1>
+  <TotalPoints_1>30</TotalPoints_1>
+  <MinTimeInterval_1>200</MinTimeInterval_1>
+  <MaxTimeInterval_1>400</MaxTimeInterval_1>
+  <ReduceTimeInterval_1>500</ReduceTimeInterval_1>
+  <TimerCountDown_1>30</TimerCountDown_1>
+  <OkClick0_1>4</OkClick0_1>
+  <OkClick1_1>3</OkClick1_1>
+  <OkClick2_1>3</OkClick2_1>
+  <OkClick3_1>3</OkClick3_1>
+  <OkClick4_1>3</OkClick4_1>
+  <OkClick5_1>2</OkClick5_1>
+  <OkClick6_1>2</OkClick6_1>
+  <OkClick7_1>2</OkClick7_1>
+  <OkClick8_1>1</OkClick8_1>
+  <OkClick9_1>1</OkClick9_1>
+  <OkClick10_1>1</OkClick10_1>
+  <NGClick0_1>4</NGClick0_1>
+  <NGClick1_1>3</NGClick1_1>
+  <NGClick2_1>2</NGClick2_1>
+  <NGClick3_1>2</NGClick3_1>
+  <NGClick4_1>2</NGClick4_1>
+  <NGClick5_1>1</NGClick5_1>
+  <NGClick6_1>1</NGClick6_1>
+  <NGClick7_1>1</NGClick7_1>
+  <NGClick8_1>1</NGClick8_1>
+  <NGClick9_1>1</NGClick9_1>
+  <NGClick10_1>1</NGClick10_1>
+</Stage1>
+
+<Stage2>
+  <TotalPoints_2>30</TotalPoints_2>
+  <MinTimeInterval_2>200</MinTimeInterval_2>
+  <MaxTimeInterval_2>400</MaxTimeInterval_2>
+  <ReduceTimeInterval_2>500</ReduceTimeInterval_2>
+  <TimerCountDown_2>30</TimerCountDown_2>
+  <OkClick0_2>4</OkClick0_2>
+  <OkClick1_2>3</OkClick1_2>
+  <OkClick2_2>3</OkClick2_2>
+  <OkClick3_2>3</OkClick3_2>
+  <OkClick4_2>3</OkClick4_2>
+  <OkClick5_2>2</OkClick5_2>
+  <OkClick6_2>2</OkClick6_2>
+  <OkClick7_2>2</OkClick7_2>
+  <OkClick8_2>1</OkClick8_2>
+  <OkClick9_2>1</OkClick9_2>
+  <OkClick10_2>1</OkClick10_2>
+  <NGClick0_2>4</NGClick0_2>
+  <NGClick1_2>3</NGClick1_2>
+  <NGClick2_2>2</NGClick2_2>
+  <NGClick3_2>2</NGClick3_2>
+  <NGClick4_2>2</NGClick4_2>
+  <NGClick5_2>1</NGClick5_2>
+  <NGClick6_2>1</NGClick6_2>
+  <NGClick7_2>1</NGClick7_2>
+  <NGClick8_2>1</NGClick8_2>
+  <NGClick9_2>1</NGClick9_2>
+  <NGClick10_2>1</NGClick10_2>
+</Stage2>
+
+<Stage3>
+  <TotalPoints_3>30</TotalPoints_3>
+  <MinTimeInterval_3>200</MinTimeInterval_3>
+  <MaxTimeInterval_3>400</MaxTimeInterval_3>
+  <ReduceTimeInterval_3>500</ReduceTimeInterval_3>
+  <TimerCountDown_3>30</TimerCountDown_3>
+  <OkClick0_3>4</OkClick0_3>
+  <OkClick1_3>3</OkClick1_3>
+  <OkClick2_3>3</OkClick2_3>
+  <OkClick3_3>3</OkClick3_3>
+  <OkClick4_3>3</OkClick4_3>
+  <OkClick5_3>2</OkClick5_3>
+  <OkClick6_3>2</OkClick6_3>
+  <OkClick7_3>2</OkClick7_3>
+  <OkClick8_3>1</OkClick8_3>
+  <OkClick9_3>1</OkClick9_3>
+  <OkClick10_3>1</OkClick10_3>
+  <NGClick0_3>4</NGClick0_3>
+  <NGClick1_3>3</NGClick1_3>
+  <NGClick2_3>2</NGClick2_3>
+  <NGClick3_3>2</NGClick3_3>
+  <NGClick4_3>2</NGClick4_3>
+  <NGClick5_3>1</NGClick5_3>
+  <NGClick6_3>1</NGClick6_3>
+  <NGClick7_3>1</NGClick7_3>
+  <NGClick8_3>1</NGClick8_3>
+  <NGClick9_3>1</NGClick9_3>
+  <NGClick10_3>1</NGClick10_3>
+</Stage3>
+
+<General>
+  <OnSale>false</OnSale>
+  <URLLink>http://p4.atlusnet.jp/</URLLink>
+</General>
