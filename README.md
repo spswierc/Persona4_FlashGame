@@ -1,5 +1,6 @@
 NOZOKI -- ORIGINAL ATLUS WEBPAGE & ASSETS BUNDLE
 ================================================
+https://spswierc.github.io/Persona4_FlashGame/assets/play.html
 
 START
 -----
